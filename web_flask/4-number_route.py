@@ -1,40 +1,41 @@
-from flask import flask
-""" start flask application
-routes:
- /: Displays 'Hello HBNB!'.
+#!/usr/bin/python3
+from flask import Flask
+
+""" 
+Start Flask application
+Routes:
+    /: Displays 'Hello HBNB!'.
     /hbnb: Displays 'HBNB'.
     /c/<text>: Displays 'C' followed by the value of <text>.
-    /python/<text>: display “Python ”, followed by the value of the text
+    /python/<text>: Display 'Python', followed by the value of the text.
+    /number/<int:n>: Displays '<n> is a number' only if <n> is an integer.
 """
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     return 'Hello HBNB!'
 
-
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     return 'HBNB'
-
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
     formatted_text = text.replace('_', ' ')
     return 'C {}'.format(formatted_text)
 
-
 @app.route('/python/', strict_slashes=False)
-@app.route('/python/<text>', strict_slashes=false)
-def python_text(test='is cool'):
+@app.route('/python/<text>', strict_slashes=False)
+def python_text(text='is cool'):  # Changed 'test' to 'text', added default value
     formatted_text = text.replace('_', ' ')
-    return 'python {}'.format(formatted_text)
-
+    return 'Python {}'.format(formatted_text)
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    return "{:d} is a number".forman(n)
+    return "{:d} is a number".format(n)  # Corrected 'forman' to 'format'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0", port=5000)
+    app.run(host='0.0.0.0', port=5000)
+
