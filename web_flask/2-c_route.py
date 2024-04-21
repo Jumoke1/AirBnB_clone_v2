@@ -1,4 +1,5 @@
-from flask import flask
+#!/usr/bin/python3
+from flask import Flask
 """ start flask application
 routes:
  /: Displays 'Hello HBNB!'.
@@ -24,4 +25,4 @@ def c_text(text):
     return "C {}".format(formatted_text)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0", port=5000)
+    app.run(host='0.0.0.0', port=5000)
