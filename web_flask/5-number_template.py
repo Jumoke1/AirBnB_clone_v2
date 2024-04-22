@@ -8,7 +8,7 @@ Routes:
     /python/<text>: Display 'Python', followed by the value of the text.
 """
 from flask import Flask
-
+from flask import render_template
 app = Flask(__name__)
 
 
